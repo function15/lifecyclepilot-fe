@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-graphik;
+}
+
+@layer base {
+
+    .article p, .article div, .article span, .article li {
+        @apply text-gray-800;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-gray-800;
+        @apply font-franklin;
+    }
+
+    .article p, .article div, .article span, .article ul {
+        @apply text-lg;
+        @apply leading-6;
+    }
+
+    .article b, .article strong {
+        @apply text-gray-900;
+    }
+
+    .article p {
+        @apply mb-4;
+    }
+
+    .article li {
+        @apply mb-2;
+    }
+
+    .article ul {
+        @apply mb-4;
+    }
+
+    @media (min-width: 640px) {
+        .article p, .article div, .article span, .article ul {
+            @apply text-base;
+            @apply leading-6;
+        }
+        .article p {
+            @apply mb-4;
+        }
+    }
+
+}
+

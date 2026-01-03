@@ -1,4 +1,4 @@
-# Trading journal & analytics
+# Free Trial Checkout Page Builder
 
 * Install nvm
 * nvm install 18.12.1

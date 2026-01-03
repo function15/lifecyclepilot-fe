@@ -1,0 +1,50 @@
+{
+  "name": "lifecyclepilot",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "npm run lint && npm run type-check && vite",
+    "build": "run-p type-check build-only",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.1.5",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.9",
+    "@unhead/vue": "^2.0.19",
+    "autoprefixer": "^10.4.20",
+    "axios": "^1.7.7",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.6.0",
+    "npm": "^11.6.2",
+    "pinia": "^3.0.3",
+    "tailwindcss": "^3.4.18",
+    "unhead": "^2.0.19",
+    "vue": "^3.5.11",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/node": "^24.7.2",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue-jsx": "^5.1.1",
+    "@vue/eslint-config-typescript": "^14.0.1",
+    "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.12.0",
+    "eslint-plugin-vue": "^10.5.0",
+    "globals": "^16.4.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.8.1",
+    "vite": "^7.1.9",
+    "vue-tsc": "^3.1.1"
+  }
+}
