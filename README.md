@@ -1,4 +1,4 @@
-# Free Trial Checkout Page Builder
+# Lower churn. Retain more subscribers.
 
 * Install nvm
 * nvm install 18.12.1
