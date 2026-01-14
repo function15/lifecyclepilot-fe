@@ -3,12 +3,12 @@ import { useHead } from '@unhead/vue'
 import LandingPage from '@/components/LandingPage.vue'
 
 useHead({
-  title: 'Lifecycle Pilot - Improve Your Free-to-Paid Conversion Rate',
+  title: 'LifecyclePilot - Stop Cancellations Before They Happen',
   meta: [
     {
       name: 'description',
       content:
-        'Track, analyze, and improve your trading performance with our comprehensive trading journal. Built for stock market traders who want to take their trading to the next level.'
+        'Reduce churn by up to 40% with intelligent cancellation flows that personalize offers, discounts, and alternatives for every customer. Built for subscription businesses that want to maximize retention.'
     }
   ]
 })
