@@ -3,7 +3,7 @@ import { useHead } from '@unhead/vue'
 import LandingPage from '@/components/LandingPage.vue'
 
 useHead({
-  title: 'LifecyclePilot - Stop Cancellations Before They Happen',
+  title: 'Lower Your Churn',
   meta: [
     {
       name: 'description',
