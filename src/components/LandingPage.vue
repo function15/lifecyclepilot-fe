@@ -128,11 +128,11 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            No-Code Flow Builder
+            Visual Flow Builder
           </h2>
           <p class="mt-6 text-lg leading-8 text-indigo-200">
-            Design sophisticated cancellation flows without writing a single line of code.
-            Our visual editor makes it easy to create, test, and optimize your retention strategy.
+            Design sophisticated cancellation flows with our intuitive visual editor.
+            Create, test, and optimize your retention strategy with ease.
           </p>
         </div>
 
@@ -145,14 +145,6 @@
                 <p class="mt-4 text-lg text-white/80">Interactive Flow Builder Demo</p>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
-          <div v-for="capability in builderCapabilities" :key="capability.name" class="text-center">
-            <component :is="capability.icon" class="mx-auto h-10 w-10 text-indigo-400" />
-            <h3 class="mt-4 text-lg font-semibold text-white">{{ capability.name }}</h3>
-            <p class="mt-2 text-sm text-indigo-200">{{ capability.description }}</p>
           </div>
         </div>
       </div>
@@ -247,9 +239,6 @@
               class="rounded-md bg-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all"
             >
               Start Free Trial
-            </a>
-            <a href="#" class="text-lg font-semibold leading-7 text-gray-900">
-              Schedule Demo <span aria-hidden="true">→</span>
             </a>
           </div>
           <p class="mt-6 text-sm text-gray-500">
@@ -559,22 +548,6 @@ const CheckCircleIcon = {
   ])
 }
 
-const CursorArrowRaysIcon = {
-  render: () => h('svg', {
-    xmlns: 'http://www.w3.org/2000/svg',
-    fill: 'none',
-    viewBox: '0 0 24 24',
-    'stroke-width': '1.5',
-    stroke: 'currentColor'
-  }, [
-    h('path', {
-      'stroke-linecap': 'round',
-      'stroke-linejoin': 'round',
-      d: 'M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59'
-    })
-  ])
-}
-
 const RocketLaunchIcon = {
   render: () => h('svg', {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -686,8 +659,8 @@ export default defineComponent({
 
     const advancedFeatures = [
       {
-        name: 'No-Code Flow Editor',
-        description: 'Build sophisticated cancellation flows without writing code. Our visual editor makes it easy to create, test, and iterate on your retention strategy.',
+        name: 'Visual Flow Editor',
+        description: 'Build sophisticated cancellation flows with our visual editor. Easy to create, test, and iterate on your retention strategy.',
         icon: CodeBracketIcon,
       },
       {
@@ -727,24 +700,6 @@ export default defineComponent({
       },
     ]
 
-    const builderCapabilities = [
-      {
-        name: 'Drag & Drop',
-        description: 'Build flows visually with an intuitive interface',
-        icon: CursorArrowRaysIcon,
-      },
-      {
-        name: 'Real-Time Preview',
-        description: 'See exactly what customers will experience',
-        icon: CubeTransparentIcon,
-      },
-      {
-        name: 'Version History',
-        description: 'Track changes and revert to previous versions',
-        icon: ClockIcon,
-      },
-    ]
-
     const segmentationFeatures = [
       {
         name: 'Behavioral Targeting',
@@ -767,7 +722,7 @@ export default defineComponent({
     const abTestingBenefits = [
       {
         name: 'Easy Experimentation',
-        description: 'Create A/B tests in minutes with our no-code interface. Test different offers, messaging, timing, and flow structures.',
+        description: 'Create A/B tests in minutes. Test different offers, messaging, timing, and flow structures.',
         icon: RocketLaunchIcon,
       },
       {
@@ -793,7 +748,6 @@ export default defineComponent({
       primaryFeatures,
       offers,
       advancedFeatures,
-      builderCapabilities,
       segmentationFeatures,
       abTestingBenefits,
       footerNavigation,
