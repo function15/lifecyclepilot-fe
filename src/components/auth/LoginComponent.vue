@@ -1,10 +1,44 @@
 <template>
-  <div class="bg-white p-4 flex-1 mb-4 md:mb-0">
+  <div class="flex min-h-[calc(100vh-60px)] items-center justify-center bg-white px-4">
 
-    <div v-show="!isAuthenticated">
-      <h2 class="text-xl font-bold mb-2">New to ATJ?</h2>
-      <p>Sign up to get your own personalized timeline!</p>
-      <div id="googleSignInDiv"></div>
+    <div v-show="!isAuthenticated" class="w-full max-w-sm">
+      <h2 class="text-xl font-bold mb-10">Welcome back</h2>
+
+      <form @submit.prevent="handleSubmit" class="space-y-4">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            id="email"
+            v-model="form.email"
+            type="email"
+            required
+            class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500"
+          />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input
+            id="password"
+            v-model="form.password"
+            type="password"
+            required
+            class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-md bg-black px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2"
+        >
+          Sign In
+        </button>
+
+        <div class="flex items-center justify-between">
+          <a href="#" class="text-sm text-gray-900 hover:text-yellow-600">Create account</a>
+          <a href="#" class="text-sm text-gray-900 hover:text-yellow-600">Forgot password?</a>
+        </div>
+      </form>
     </div>
 
   </div>
@@ -12,62 +46,33 @@
 
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { callAuthCallback } from '@/services/Auth'
+import { computed, defineComponent, reactive } from 'vue'
 import { useAuthStore } from '@/stores/auth'
-
-interface GoogleCredentialResponse {
-  credential: string;
-}
 
 export default defineComponent({
   name: 'LoginComponent',
-  components: {},
-  mounted() {
-
-    const checkGoogleAPI = () => {
-      // @ts-expect-error - Google API
-      if (window.google && window.google.accounts) {
-        // @ts-expect-error - Google API
-        window.google.accounts.id.initialize({
-          client_id: '859579614230-762s4l5pv3unidsd2npiagjqlhvj261a.apps.googleusercontent.com',
-          callback: this.handleCredentialResponse
-        })
-
-        // @ts-expect-error - Google API
-        window.google.accounts.id.renderButton(
-          document.getElementById('googleSignInDiv'), // Your button container
-          {
-            theme: 'outline',
-            size: 'large'
-          } // Customization options
-        )
-      } else {
-        setTimeout(checkGoogleAPI, 100) // Check again after 100ms
-      }
-    }
-
-    checkGoogleAPI()
+  components: {
   },
-  methods: {
-    async handleCredentialResponse(response: GoogleCredentialResponse) {
-      const authResponse = await callAuthCallback(response.credential)
-      const store = useAuthStore()
-      await store.login(authResponse.data.token)
-
-      // redirect to tracking page
-      this.$router.push('/tracking')
-    }
-  },
-
   setup() {
     const store = useAuthStore()
     const isAuthenticated = computed(() => store.isAuthenticated)
     const username = computed(() => store.loggedInUser?.username)
 
+    const form = reactive({
+      email: '',
+      password: ''
+    })
+
+    const handleSubmit = async () => {
+      // TODO: Implement login API call
+      console.log('Login submitted:', form.email)
+    }
+
     return {
       isAuthenticated,
       username,
+      form,
+      handleSubmit
     }
   }
 })

@@ -9,11 +9,11 @@
           </router-link>
         </div>
         <div class="flex items-center gap-x-8">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600">Pricing</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600">FAQ</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-yellow-500">Pricing</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-900 hover:text-yellow-500">FAQ</a>
           <router-link
             :to="{ name: 'login' }"
-            class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600"
+            class="text-sm font-semibold leading-6 text-gray-900 hover:text-yellow-500"
           >
             Login
           </router-link>
@@ -22,7 +22,7 @@
     </header>
 
     <!-- Hero Section -->
-    <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-[74px]">
+    <div class="relative isolate overflow-hidden bg-gradient-to-b from-yellow-100/20 pt-[74px]">
       <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900" aria-labelledby="footer-heading">
+    <footer class="bg-black" aria-labelledby="footer-heading">
       <h2 id="footer-heading" class="sr-only">Footer</h2>
       <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
@@ -47,7 +47,7 @@
               v-for="item in footerNavigation"
               :key="item.name"
               :to="{ name: item.route }"
-              class="text-sm leading-6 text-gray-300 hover:text-white"
+              class="text-sm leading-6 text-gray-300 hover:text-yellow-400"
             >
               {{ item.name }}
             </router-link>

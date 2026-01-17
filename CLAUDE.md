@@ -229,6 +229,30 @@ npm run preview
 - Use Headless UI for interactive components
 - Custom CSS only when necessary (via Tailwind plugins)
 
+#### Brand Colors
+The project uses a **yellow and black** color scheme:
+- **Primary (Black)**: `bg-black`, `text-gray-900` - Used for buttons, headings, and primary text
+- **Accent (Yellow)**: `yellow-400`, `yellow-500`, `yellow-600` - Used for hover states, focus rings, and highlights
+- **Background**: `bg-white` - Clean white backgrounds
+- **Text**: `text-gray-900` (primary), `text-gray-700` (secondary), `text-gray-400` (muted)
+
+Common color patterns:
+```html
+<!-- Primary button -->
+<button class="bg-black text-white hover:bg-gray-800 focus:ring-yellow-500">
+
+<!-- Link hover -->
+<a class="text-gray-900 hover:text-yellow-500">
+
+<!-- Input focus -->
+<input class="focus:border-yellow-500 focus:ring-yellow-500">
+
+<!-- Footer (dark) -->
+<footer class="bg-black">
+  <a class="text-gray-300 hover:text-yellow-400">
+</footer>
+```
+
 #### State Management
 - Pinia stores in `camelCase`
 - One store per feature domain
@@ -525,6 +549,6 @@ Proprietary - All rights reserved
 
 ---
 
-**Last Updated**: 2026-01-13
+**Last Updated**: 2026-01-16
 **Version**: 0.0.0
 **Maintained By**: LifecyclePilot Team
