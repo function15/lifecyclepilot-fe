@@ -3,7 +3,7 @@ import { useHead } from '@unhead/vue'
 import LandingPage from '@/components/LandingPage.vue'
 
 useHead({
-  title: 'Lower Your Churn',
+  title: 'Cancellation Flows by LifecyclePilot',
   meta: [
     {
       name: 'description',
