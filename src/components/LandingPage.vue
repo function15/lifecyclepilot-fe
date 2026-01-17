@@ -1,7 +1,28 @@
 <template>
   <div class="bg-white">
+    <!-- Top Menu -->
+    <header class="fixed inset-x-0 top-0 z-50 h-[60px] bg-white shadow-sm">
+      <nav class="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
+        <div class="flex items-center">
+          <router-link :to="{ name: 'landing' }" class="flex items-center">
+            <img src="@/assets/trader-logo.svg" alt="LifecyclePilot" class="h-8 w-auto" />
+          </router-link>
+        </div>
+        <div class="flex items-center gap-x-8">
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600">Pricing</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600">FAQ</a>
+          <router-link
+            :to="{ name: 'login' }"
+            class="text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-600"
+          >
+            Login
+          </router-link>
+        </div>
+      </nav>
+    </header>
+
     <!-- Hero Section -->
-    <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
+    <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-[74px]">
       <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
           <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
