@@ -1,7 +1,7 @@
 <template>
   <main>
-    <router-link :to="{name: 'home'}">
-      <h2 class="text-xl font-bold mb-8">ATJ</h2>
+    <router-link :to="{name: 'home'}" class="mb-8 block">
+      <img src="/assets/images/logo.svg" alt="LifecyclePilot" class="h-8 w-auto" />
     </router-link>
     <div v-for="item in navigation" :key="item.name" class="pb-6">
       <router-link type="a"
