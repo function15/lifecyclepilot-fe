@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="120" viewBox="0 0 520 120" role="img" aria-label="LifecyclePilot logo">
+    <title>LifecyclePilot</title>
+
+    <defs>
+        <style>
+            .g { fill: #111827; }
+            .y { fill: #EAB308; }
+            .word { font: 700 44px/1.1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+            .tag  { font: 500 16px/1.2 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; letter-spacing: .02em; }
+        </style>
+    </defs>
+
+    <!-- Icon: "L" path + pilot marker -->
+    <g transform="translate(20,18)">
+        <!-- Rounded square -->
+        <rect x="0" y="0" width="84" height="84" rx="18" class="g"/>
+        <!-- Stylized lifecycle loop -->
+        <path class="y" d="M42 17c-13.8 0-25 11.2-25 25 0 12 8.5 22 19.9 24.4 1.1.2 2.1-.6 2.1-1.7v-7.3c0-1-.8-1.8-1.8-1.8h-7.4c-1 0-1.8-.8-1.8-1.8 0-7.7 6.2-13.9 13.9-13.9 7.7 0 13.9 6.2 13.9 13.9 0 1 .8 1.8 1.8 1.8h7.4c1 0 1.8-.8 1.8-1.8 0-13.8-11.2-25-25-25z"/>
+        <!-- "Pilot" pointer -->
+        <path class="y" d="M61 20l6 14-14-6 4-3z"/>
+    </g>
+
+</svg>
