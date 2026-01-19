@@ -239,7 +239,7 @@ The project uses a **yellow and black** color scheme:
 Common color patterns:
 ```html
 <!-- Primary button -->
-<button class="bg-black text-white hover:bg-gray-800 focus:ring-yellow-500">
+<button class="bg-yellow-400 text-black hover:bg-yellow-500 focus:ring-yellow-500">
 
 <!-- Link hover -->
 <a class="text-gray-900 hover:text-yellow-500">
