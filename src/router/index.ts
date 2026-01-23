@@ -26,7 +26,7 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/tracking/dashboard',
+      path: '/app/cancel',
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue')
     },
