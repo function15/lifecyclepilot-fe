@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import apiClient from '@/services/ApiClient'
+import { authService } from '@/services/authService'
 import type { UpdateUserDetails, User } from '@/stores/user'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -8,7 +9,20 @@ export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(!!localStorage.getItem('authToken'))
   const loggedInUser = ref<User>()
 
-  async function login(authToken: string) {
+  async function login(email: string, password: string) {
+    try {
+      const response = await authService.login({ email, password })
+      localStorage.setItem('authToken', response.token)
+      isAuthenticated.value = true
+      // call loadUser
+      await loadLoggedInUser()
+    } catch (error) {
+      console.error('Failed to login:', error)
+      throw error
+    }
+  }
+
+  async function loginWithToken(authToken: string) {
     try {
       localStorage.setItem('authToken', authToken)
       // call loadUser
@@ -49,5 +63,5 @@ export const useAuthStore = defineStore('auth', () => {
       console.error('Failed to logout:', error)
     }
   }
-  return { isAuthenticated, loggedInUser, login, logout, loadLoggedInUser, updateUser }
+  return { isAuthenticated, loggedInUser, login, loginWithToken, logout, loadLoggedInUser, updateUser }
 })

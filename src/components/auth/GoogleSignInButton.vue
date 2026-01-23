@@ -42,7 +42,7 @@ export default defineComponent({
     async handleCredentialResponse(response: GoogleCredentialResponse) {
       const authResponse = await callAuthCallback(response.credential)
       const store = useAuthStore()
-      await store.login(authResponse.data.token)
+      await store.loginWithToken(authResponse.data.token)
 
       this.$router.push('/tracking')
     }
