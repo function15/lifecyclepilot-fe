@@ -1,6 +1,6 @@
 <template>
   <main>
-    <router-link :to="{name: 'home'}" class="mb-8 block">
+    <router-link :to="{name: 'landing'}" class="mb-8 block">
       <img src="/assets/images/logo.svg" alt="LifecyclePilot" class="h-8 w-auto" />
     </router-link>
     <div v-for="item in navigation" :key="item.name" class="pb-6">
@@ -32,10 +32,7 @@ export default defineComponent({
 
     const navigation = computed(() => [
       { name: 'Cancellation Flows', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
-      { name: 'Feed', route: 'home', to: { name: 'home' } },
-      { name: 'Stocks', route: 'stocks', to: { name: 'stocks' } },
       { name: 'Notifications', route: 'notifications', to: isAuthenticated.value ? { name: 'notifications' } : { name: 'login' } },
-      { name: 'Liked', route: 'liked', to: isAuthenticated.value ? { name: 'liked' } : { name: 'login' } },
       { name: 'My Profile', route: 'user', to: username.value ? { name: 'user', params: { username: username.value } } : { name: 'login' } },
       { name: 'Settings', route: 'settings-profile', to: isAuthenticated.value ? { name: 'settings-profile' } : { name: 'login' } },
       { name: 'Post', route: 'create-post', to: isAuthenticated.value ? { name: 'create-post' } : { name: 'login' } },

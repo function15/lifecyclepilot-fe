@@ -8,12 +8,12 @@
     </div>
     <div class="post-content my-2">
       <span v-for="(part, index) in formattedContent" :key="index">
-        <router-link v-if="part.isHashtag" :to="{ name: 'hashtag', params: { hashtag: part.text.substring(1) } }" class="text-blue-500 hover:underline" @click.stop>
+        <span v-if="part.isHashtag" class="text-blue-500">
           {{ part.text }}
-        </router-link>
-        <router-link v-else-if="part.isStock" :to="{ name: 'stock', params: { stock: part.text.substring(1) } }" class="text-green-500 hover:underline" @click.stop>
+        </span>
+        <span v-else-if="part.isStock" class="text-green-500">
           {{ part.text }}
-        </router-link>
+        </span>
         <span v-else>{{ part.text }}</span>
       </span>
     </div>

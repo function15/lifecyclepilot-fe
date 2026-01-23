@@ -34,14 +34,6 @@ export const usePostStore = defineStore('post', () => {
     }
   }
 
-  async function fetchLikedPosts() {
-    try {
-      const response = await apiClient.get('/posts/liked')
-      posts.value = response.data
-    } catch (error) {
-      console.error('Failed to fetch posts', error)
-    }
-  }
 
   async function createPost(content: string) {
     try {
@@ -81,32 +73,6 @@ export const usePostStore = defineStore('post', () => {
     }
   }
 
-  async function fetchPostsByHashtag(hashtag: string) {
-    try {
-      const response = await apiClient.post(`/posts/search`, { hashtag })
-      posts.value = response.data
-    } catch (error) {
-      console.error('Failed to fetch posts by hashtag', error)
-    }
-  }
-
-  async function fetchPostsByStock(stock: string) {
-    try {
-      const response = await apiClient.post(`/posts/search`, { stock })
-      posts.value = response.data
-    } catch (error) {
-      console.error('Failed to fetch posts by hashtag', error)
-    }
-  }
-
-  async function fetchPostsWithStocks() {
-    try {
-      const response = await apiClient.get(`/posts/stocks`)
-      posts.value = response.data
-    } catch (error) {
-      console.error('Failed to fetch posts by hashtag', error)
-    }
-  }
 
   async function fetchPostReplies(postId: string) {
     try {
@@ -131,11 +97,8 @@ export const usePostStore = defineStore('post', () => {
   return {
     posts, post, replies,
     fetchPosts, createPost, createPostReply,
-    fetchPostsByUsername, fetchPostById, fetchPostsByHashtag,
-    fetchLikedPosts: fetchLikedPosts,
+    fetchPostsByUsername, fetchPostById,
     likePost,
-    fetchPostsByStock,
-    fetchPostsWithStocks,
     fetchPostReplies
   }
 })

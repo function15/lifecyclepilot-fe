@@ -13,7 +13,16 @@
       </div>
       <FollowButton :user="user" />
     </div>
-    <FeedComponent :posts="posts" :loading="loading"/>
+    <main>
+      <div v-if="loading" class="mb-4 p-4 border rounded text-center">
+        <LoadingComponent />
+      </div>
+      <div v-else>
+        <div v-for="post in posts" :key="post.id" class="mb-4 p-4 border rounded">
+          <PostComponent :post="post" />
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -21,7 +30,8 @@
 import { defineComponent, ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { type Post, usePostStore } from '@/stores/post'
-import FeedComponent from '@/components/feed/FeedComponet.vue'
+import PostComponent from '@/components/post/PostComponent.vue'
+import LoadingComponent from '@/components/helper/LoadingComponent.vue'
 import moment from 'moment'
 import { type User, useUserStore } from '@/stores/user'
 import FollowButton from '@/components/button/FollowButton.vue'
@@ -29,7 +39,7 @@ import { useAuthStore } from '@/stores/auth'
 
 export default defineComponent({
   name: 'UserPage',
-  components: { FollowButton, FeedComponent },
+  components: { FollowButton, PostComponent, LoadingComponent },
   setup() {
     const route = useRoute()
     const router = useRouter()

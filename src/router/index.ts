@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 import NotFoundView from '@/views/page/NotFoundView.vue'
 import SettingsView from '@/views/settings/SettingsView.vue'
 import SettingsProfileView from '@/views/settings/SettingsProfileView.vue'
@@ -19,11 +18,6 @@ const router = createRouter({
       path: '/',
       name: 'landing',
       component: LandingView
-    },
-    {
-      path: '/tracking/feed',
-      name: 'home',
-      component: HomeView
     },
     {
       path: '/app/cancel',
@@ -81,29 +75,9 @@ const router = createRouter({
       component: () => import('../views/CreatePostView.vue')
     },
     {
-      path: '/hashtag/:hashtag',
-      name: 'hashtag',
-      component: () => import('../views/HashtagView.vue')
-    },
-    {
-      path: '/stock/:stock',
-      name: 'stock',
-      component: () => import('../views/StockView.vue')
-    },
-    {
-      path: '/stocks',
-      name: 'stocks',
-      component: () => import('../views/StocksView.vue')
-    },
-    {
       path: '/notifications',
       name: 'notifications',
       component: () => import('../views/NotificationsView.vue')
-    },
-    {
-      path: '/liked',
-      name: 'liked',
-      component: () => import('../views/LikedPostsView.vue')
     },
     {
       path: '/disclaimer',
