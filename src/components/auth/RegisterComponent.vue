@@ -10,18 +10,6 @@
         </div>
 
         <div>
-          <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-          <input
-            id="username"
-            v-model="form.username"
-            type="text"
-            required
-            :disabled="isLoading"
-            class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
-          />
-        </div>
-
-        <div>
           <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
           <input
             id="email"
@@ -91,7 +79,6 @@ export default defineComponent({
     const isLoading = ref(false)
 
     const form = reactive({
-      username: '',
       email: '',
       password: '',
       confirmPassword: ''
@@ -116,7 +103,6 @@ export default defineComponent({
 
       try {
         await store.register({
-          username: form.username,
           email: form.email,
           password: form.password
         })
