@@ -110,29 +110,4 @@ export const getWinRate = async (params: WinRateParams = {}) => {
   return apiClient.get<WinRateResponse>(url);
 };
 
-export const getDashboardStats = async (params: DashboardStatsParams = {}) => {
-  const queryParams = new URLSearchParams();
 
-  if (params.profits_type) {
-    queryParams.append('profits_type', params.profits_type);
-  }
-
-  if (params.accounts) {
-    params.accounts.forEach(account => {
-      queryParams.append('accounts[]', account);
-    });
-  }
-
-  if (params.match_all_playbooks !== undefined) {
-    queryParams.append('match_all_playbooks', String(params.match_all_playbooks));
-  }
-
-  if (params.number_format) {
-    queryParams.append('number_format', params.number_format);
-  }
-
-  const queryString = queryParams.toString();
-  const url = `/api/v1/filters/dashboard_stats${queryString ? `?${queryString}` : ''}`;
-
-  return apiClient.get<DashboardStatsResponse>(url);
-};
