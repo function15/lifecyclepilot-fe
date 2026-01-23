@@ -80,11 +80,6 @@ const router = createRouter({
       component: () => import('../views/page/DisclaimerView.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/page/AboutView.vue')
-    },
-    {
       path: '/terms-of-service',
       name: 'terms-of-service',
       component: () => import('../views/TermsOfServiceView.vue')

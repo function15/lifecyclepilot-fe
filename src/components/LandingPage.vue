@@ -651,7 +651,6 @@ export default defineComponent({
     ]
 
     const footerNavigation = [
-      { name: 'About', route: 'about' },
       { name: 'Terms of Service', route: 'terms-of-service' },
       { name: 'Privacy Policy', route: 'privacy-policy' }
     ]
