@@ -31,8 +31,6 @@ export default defineComponent({
 
     const navigation = computed(() => [
       { name: 'Cancellation Flows', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
-      { name: 'Notifications', route: 'notifications', to: isAuthenticated.value ? { name: 'notifications' } : { name: 'login' } },
-      { name: 'My Profile', route: 'user', to: username.value ? { name: 'user', params: { username: username.value } } : { name: 'login' } },
       { name: 'Settings', route: 'settings-profile', to: isAuthenticated.value ? { name: 'settings-profile' } : { name: 'login' } }
     ])
 

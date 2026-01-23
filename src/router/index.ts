@@ -25,26 +25,6 @@ const router = createRouter({
       component: () => import('../views/DashboardView.vue')
     },
     {
-      path: '/:username',
-      name: 'user',
-      component: () => import('../views/user/UserView.vue')
-    },
-    {
-      path: '/:username/following',
-      name: 'following',
-      component: () => import('../views/user/FollowingView.vue')
-    },
-    {
-      path: '/:username/followers',
-      name: 'followers',
-      component: () => import('../views/user/FollowersView.vue')
-    },
-    {
-      path: '/:username/:postId',
-      name: 'post',
-      component: () => import('../views/PostView.vue')
-    },
-    {
       path: '/settings',
       name: 'settings',
       component: SettingsView
@@ -68,11 +48,6 @@ const router = createRouter({
       path: '/logout',
       name: 'logout',
       component: () => import('../views/LogoutView.vue')
-    },
-    {
-      path: '/notifications',
-      name: 'notifications',
-      component: () => import('../views/NotificationsView.vue')
     },
     {
       path: '/disclaimer',

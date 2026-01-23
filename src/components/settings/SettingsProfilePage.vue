@@ -9,10 +9,6 @@
         </div>
         <form @submit.prevent="updateProfile">
           <div class="mb-4">
-            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-            <input v-model="newUsername" type="text" id="username" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" />
-          </div>
-          <div class="mb-4">
             <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
             <textarea v-model="newBio" id="bio" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
           </div>
@@ -44,19 +40,14 @@ export default defineComponent({
   setup() {
     const store = useAuthStore()
     const user = computed(() => store.loggedInUser)
-    const username = computed(() => user.value?.username)
     const bio = computed(() => user.value?.bio)
     const website = computed(() => user.value?.website)
 
-    const newUsername = ref(username.value || '')
     const newBio = ref(bio.value || '')
     const newWebsite = ref(website.value || '')
     const message = ref('')
 
-    // Watch for changes in the username, bio, website, and createdDate and update accordingly
-    watch(username, (newVal) => {
-      newUsername.value = newVal || ''
-    })
+    // Watch for changes in bio and website and update accordingly
     watch(bio, (newVal) => {
       newBio.value = newVal || ''
     })
@@ -69,13 +60,13 @@ export default defineComponent({
         if (user.value) {
           await store.updateUser({
             id: user.value.id,
-            username: newUsername.value,
+            username: user.value.username,
             bio: newBio.value,
             website: newWebsite.value,
             createdDate: ''
           })
           message.value = 'Profile updated successfully!'
-          console.log('Updated profile:', newUsername.value, newBio.value, newWebsite.value)
+          console.log('Updated profile:', newBio.value, newWebsite.value)
         }
       } catch (error) {
         message.value = 'Failed to update profile!'
@@ -84,7 +75,6 @@ export default defineComponent({
     }
 
     return {
-      newUsername,
       newBio,
       newWebsite,
       updateProfile,

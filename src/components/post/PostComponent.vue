@@ -1,9 +1,9 @@
 <template>
-  <div :class="['post-container', { 'cursor-pointer': canClickOnPost }]" @click="redirectToPost">
+  <div class="post-container">
     <div class="post-header flex justify-between items-center">
-      <router-link :to="'/' + post.username" class="text-blue-500 hover:underline" @click.stop>
+      <span class="text-blue-500">
         @{{ post.username }}
-      </router-link>
+      </span>
       <span class="text-gray-500 text-sm">{{ formattedDate }}</span>
     </div>
     <div class="post-content my-2">
@@ -85,11 +85,6 @@ export default defineComponent({
     const likeCount = ref(props.post.likeCount)
     const randomInt = Math.max(Math.floor(Math.random() * 20), 5)
 
-    const redirectToPost = () => {
-      if (!props.canClickOnPost) return
-      router.push({ name: 'post', params: { username: props.post.username, postId: props.post.id } })
-    }
-
     const comment = () => {
       console.log('Comment action triggered')
     }
@@ -131,7 +126,6 @@ export default defineComponent({
     return {
       formattedDate,
       isLiked,
-      redirectToPost,
       comment,
       repost,
       like,
