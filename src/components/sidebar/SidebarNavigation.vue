@@ -6,10 +6,9 @@
     <div v-for="item in navigation" :key="item.name" class="pb-6">
       <router-link type="a"
                    :class="[
-                            $route.name === item.route && item.name !== 'Post' ? 'underline' : '',
+                            $route.name === item.route ? 'underline' : '',
                             'text-sm',
-                            'navigation-link',
-                            item.name === 'Post' && $route.name === item.route ? 'bg-blue-700 text-white px-4 py-2 rounded' : item.name === 'Post' ? 'bg-blue-500 text-white px-4 py-2 rounded' : ''
+                            'navigation-link'
                           ]"
                    :to="item.to">
         {{ item.name }}
@@ -35,7 +34,6 @@ export default defineComponent({
       { name: 'Notifications', route: 'notifications', to: isAuthenticated.value ? { name: 'notifications' } : { name: 'login' } },
       { name: 'My Profile', route: 'user', to: username.value ? { name: 'user', params: { username: username.value } } : { name: 'login' } },
       { name: 'Settings', route: 'settings-profile', to: isAuthenticated.value ? { name: 'settings-profile' } : { name: 'login' } },
-      { name: 'Post', route: 'create-post', to: isAuthenticated.value ? { name: 'create-post' } : { name: 'login' } },
       { name: 'About', route: 'about', to: { name: 'about' } }
     ])
 

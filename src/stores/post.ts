@@ -34,17 +34,6 @@ export const usePostStore = defineStore('post', () => {
     }
   }
 
-
-  async function createPost(content: string) {
-    try {
-      const response = await apiClient.post('/post', { content })
-      console.log('Post created:', response.data)
-    } catch (error) {
-      console.error('Failed to create post', error)
-      throw error
-    }
-  }
-
   async function createPostReply(postId: string, content: string) {
     try {
       const response = await apiClient.post(`/replies/${postId}`, { content })
@@ -96,7 +85,7 @@ export const usePostStore = defineStore('post', () => {
 
   return {
     posts, post, replies,
-    fetchPosts, createPost, createPostReply,
+    fetchPosts, createPostReply,
     fetchPostsByUsername, fetchPostById,
     likePost,
     fetchPostReplies

@@ -70,11 +70,6 @@ const router = createRouter({
       component: () => import('../views/LogoutView.vue')
     },
     {
-      path: '/post',
-      name: 'create-post',
-      component: () => import('../views/CreatePostView.vue')
-    },
-    {
       path: '/notifications',
       name: 'notifications',
       component: () => import('../views/NotificationsView.vue')
