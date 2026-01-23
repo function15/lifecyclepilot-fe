@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import apiClient from '@/services/ApiClient'
-import { authService } from '@/services/authService'
+import { authService, type RegisterRequest } from '@/services/authService'
 import type { UpdateUserDetails, User } from '@/stores/user'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -18,6 +18,19 @@ export const useAuthStore = defineStore('auth', () => {
       await loadLoggedInUser()
     } catch (error) {
       console.error('Failed to login:', error)
+      throw error
+    }
+  }
+
+  async function register(data: RegisterRequest) {
+    try {
+      const response = await authService.register(data)
+      localStorage.setItem('authToken', response.token)
+      isAuthenticated.value = true
+      // call loadUser
+      await loadLoggedInUser()
+    } catch (error) {
+      console.error('Failed to register:', error)
       throw error
     }
   }
@@ -63,5 +76,5 @@ export const useAuthStore = defineStore('auth', () => {
       console.error('Failed to logout:', error)
     }
   }
-  return { isAuthenticated, loggedInUser, login, loginWithToken, logout, loadLoggedInUser, updateUser }
+  return { isAuthenticated, loggedInUser, login, register, loginWithToken, logout, loadLoggedInUser, updateUser }
 })

@@ -5,7 +5,22 @@ export interface LoginRequest {
   password: string
 }
 
+export interface RegisterRequest {
+  username: string
+  email: string
+  password: string
+}
+
 export interface LoginResponse {
+  token: string
+  user?: {
+    id: string
+    email: string
+    username?: string
+  }
+}
+
+export interface RegisterResponse {
   token: string
   user?: {
     id: string
@@ -17,6 +32,11 @@ export interface LoginResponse {
 export const authService = {
   async login(credentials: LoginRequest): Promise<LoginResponse> {
     const response = await apiClient.post<LoginResponse>('/auth/login', credentials)
+    return response.data
+  },
+
+  async register(data: RegisterRequest): Promise<RegisterResponse> {
+    const response = await apiClient.post<RegisterResponse>('/auth/register', data)
     return response.data
   }
 }
