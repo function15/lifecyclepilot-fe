@@ -1,7 +1,6 @@
 <template>
   <div class="flex min-h-[calc(100vh-60px)] items-center justify-center bg-white px-4">
-
-    <div v-show="!isAuthenticated" class="w-full max-w-sm">
+    <div class="w-full max-w-sm">
       <h2 class="text-xl font-bold mb-10">Welcome back</h2>
 
       <form @submit.prevent="handleSubmit" class="space-y-4">
@@ -56,7 +55,7 @@
 
 
 <script lang="ts">
-import { computed, defineComponent, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
 
@@ -67,8 +66,6 @@ export default defineComponent({
   setup() {
     const store = useAuthStore()
     const router = useRouter()
-    const isAuthenticated = computed(() => store.isAuthenticated)
-    const username = computed(() => store.loggedInUser?.username)
     const error = ref<string | null>(null)
     const isLoading = ref(false)
 
@@ -85,8 +82,9 @@ export default defineComponent({
         await store.login(form.email, form.password)
         // Redirect to Cancellation Flows after successful login
         router.push({ name: 'dashboard' })
-      } catch (err: any) {
-        error.value = err.response?.data?.message || 'Invalid email or password'
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error && 'response' in err && err.response && typeof err.response === 'object' && 'data' in err.response && err.response.data && typeof err.response.data === 'object' && 'message' in err.response.data ? String(err.response.data.message) : 'Invalid email or password'
+        error.value = errorMessage
         console.error('Login error:', err)
       } finally {
         isLoading.value = false
@@ -94,8 +92,6 @@ export default defineComponent({
     }
 
     return {
-      isAuthenticated,
-      username,
       form,
       handleSubmit,
       error,

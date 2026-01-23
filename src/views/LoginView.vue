@@ -9,7 +9,7 @@ import LoginComponent from '@/components/auth/LoginComponent.vue'
       <nav class="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
         <div class="flex items-center">
           <router-link :to="{ name: 'landing' }" class="flex items-center">
-            <img src="@/assets/trader-logo.svg" alt="LifecyclePilot" class="h-8 w-auto" />
+            <img src="/assets/images/logo.svg" alt="LifecyclePilot" class="h-12 w-auto" />
           </router-link>
         </div>
         <div class="flex items-center gap-x-8">

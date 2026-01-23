@@ -108,8 +108,9 @@ export default defineComponent({
         })
         // Redirect to Cancellation Flows after successful registration
         router.push({ name: 'dashboard' })
-      } catch (err: any) {
-        error.value = err.response?.data?.message || 'Registration failed. Please try again.'
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error && 'response' in err && err.response && typeof err.response === 'object' && 'data' in err.response && err.response.data && typeof err.response.data === 'object' && 'message' in err.response.data ? String(err.response.data.message) : 'Registration failed. Please try again.'
+        error.value = errorMessage
         console.error('Registration error:', err)
       } finally {
         isLoading.value = false

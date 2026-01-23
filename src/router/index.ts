@@ -4,6 +4,7 @@ import NotFoundView from '@/views/page/NotFoundView.vue'
 import SettingsView from '@/views/settings/SettingsView.vue'
 import SettingsProfileView from '@/views/settings/SettingsProfileView.vue'
 import LandingView from '@/views/page/LandingView.vue'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,11 +19,6 @@ const router = createRouter({
       path: '/',
       name: 'landing',
       component: LandingView
-    },
-    {
-      path: '/tracking',
-      name: 'trades',
-      component: () => import('../views/TradesView.vue')
     },
     {
       path: '/tracking/feed',
@@ -100,10 +96,6 @@ const router = createRouter({
       component: () => import('../views/StocksView.vue')
     },
     {
-      path: '/tracking/trades',
-      redirect: '/tracking'
-    },
-    {
       path: '/notifications',
       name: 'notifications',
       component: () => import('../views/NotificationsView.vue')
@@ -143,6 +135,19 @@ const router = createRouter({
       redirect: '/404'
     }
   ]
+})
+
+// Navigation guard to redirect authenticated users away from login/register pages
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+
+  // If user is authenticated and trying to access login or register page
+  if (authStore.isAuthenticated && (to.name === 'login' || to.name === 'register')) {
+    // Redirect to Cancellation Flows
+    next({ name: 'dashboard' })
+  } else {
+    next()
+  }
 })
 
 export default router
