@@ -31,7 +31,7 @@ export default defineComponent({
     const username = computed(() => store.loggedInUser?.username)
 
     const navigation = computed(() => [
-      { name: 'Dashboard', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
+      { name: 'Cancellation Flows', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
       { name: 'Trades', route: 'trades', to: isAuthenticated.value ? { name: 'trades' } : { name: 'login' } },
       { name: 'Feed', route: 'home', to: { name: 'home' } },
       { name: 'Stocks', route: 'stocks', to: { name: 'stocks' } },

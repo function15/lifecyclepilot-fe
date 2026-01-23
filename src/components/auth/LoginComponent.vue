@@ -83,7 +83,7 @@ export default defineComponent({
 
       try {
         await store.login(form.email, form.password)
-        // Redirect to dashboard or home after successful login
+        // Redirect to Cancellation Flows after successful login
         router.push({ name: 'dashboard' })
       } catch (err: any) {
         error.value = err.response?.data?.message || 'Invalid email or password'

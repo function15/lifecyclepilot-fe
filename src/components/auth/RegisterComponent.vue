@@ -106,7 +106,7 @@ export default defineComponent({
           email: form.email,
           password: form.password
         })
-        // Redirect to dashboard after successful registration
+        // Redirect to Cancellation Flows after successful registration
         router.push({ name: 'dashboard' })
       } catch (err: any) {
         error.value = err.response?.data?.message || 'Registration failed. Please try again.'

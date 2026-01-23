@@ -2,7 +2,7 @@
   <div class="space-y-8">
     <!-- Header Section -->
     <div class="text-center lg:text-left">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Dashboard</h1>
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Cancellation Flows</h1>
     </div>
 
     <!-- Dashboard Stats Section -->

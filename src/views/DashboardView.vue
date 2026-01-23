@@ -7,9 +7,9 @@ import TwoColumnLayout from '@/components/layout/TwoColumnLayout.vue'
 import { formatPageTitle } from '@/services/CommonUtils'
 
 useHead({
-  title: formatPageTitle("Dashboard"),
+  title: formatPageTitle("Cancellation Flows"),
   meta: [
-    { name: 'description', content: 'Trading Dashboard' },
+    { name: 'description', content: 'Cancellation Flows' },
   ],
 })
 </script>
