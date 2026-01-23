@@ -4,7 +4,6 @@ import SidebarNavigation from '@/components/sidebar/SidebarNavigation.vue'
 import { useHead } from '@unhead/vue'
 import { computed } from 'vue'
 import { useAuthStore } from '@/stores/auth'
-import LoginComponent from '@/components/auth/LoginComponent.vue'
 import { formatPageTitle } from '@/services/CommonUtils'
 import TwoColumnLayout from '@/components/layout/TwoColumnLayout.vue'
 
@@ -23,7 +22,6 @@ useHead({
   <TwoColumnLayout>
     <template #sidebar>
       <SidebarNavigation />
-      <LoginComponent />
     </template>
 
     <PostPage />

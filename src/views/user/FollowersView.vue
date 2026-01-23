@@ -4,7 +4,6 @@ import { useHead } from '@unhead/vue'
 import { useRoute } from 'vue-router'
 import UserListPage from '@/components/UserListPage.vue'
 import SidebarNavigation from '@/components/sidebar/SidebarNavigation.vue'
-import LoginComponent from '@/components/auth/LoginComponent.vue'
 import { useUserStore } from '@/stores/user'
 import { formatPageTitle } from '@/services/CommonUtils'
 import TwoColumnLayout from '@/components/layout/TwoColumnLayout.vue'
@@ -31,7 +30,6 @@ onMounted(async () => {
   <TwoColumnLayout>
     <template #sidebar>
       <SidebarNavigation />
-      <LoginComponent />
     </template>
 
     <UserListPage :usersIds="followers" :title="'Followers'" :username="username" />
