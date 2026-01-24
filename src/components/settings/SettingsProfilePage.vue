@@ -79,7 +79,6 @@ export default defineComponent({
         if (user.value) {
           await store.updateUser({
             id: user.value.id,
-            username: user.value.username,
             email: newEmail.value,
             password: newPassword.value || undefined,
             bio: user.value.bio,

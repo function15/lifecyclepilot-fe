@@ -6,7 +6,6 @@ export interface UserProfile {
   last_name: string | null
   email: string
   time_zone: string
-  username: string
   storage_usage: number
   journaling_experience: string | null
   account_size: string | null
@@ -20,7 +19,6 @@ export interface UserProfile {
   trading_frequency: string | null
   onboarding_goal: string | null
   broker: string | null
-  suggested_username: string | null
   provider: string
   consented_to_support_access_at: string | null
   settings: UserSettings

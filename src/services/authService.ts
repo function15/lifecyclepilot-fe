@@ -15,7 +15,6 @@ export interface LoginResponse {
   user?: {
     id: string
     email: string
-    username?: string
   }
 }
 
@@ -24,7 +23,6 @@ export interface RegisterResponse {
   user?: {
     id: string
     email: string
-    username?: string
   }
 }
 

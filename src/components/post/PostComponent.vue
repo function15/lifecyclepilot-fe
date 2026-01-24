@@ -2,7 +2,7 @@
   <div class="post-container">
     <div class="post-header flex justify-between items-center">
       <span class="text-blue-500">
-        @{{ post.username }}
+        {{ post.email }}
       </span>
       <span class="text-gray-500 text-sm">{{ formattedDate }}</span>
     </div>

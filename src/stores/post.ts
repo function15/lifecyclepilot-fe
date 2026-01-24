@@ -6,7 +6,7 @@ export interface Post {
   id: string
   content: string
   userId: string
-  username: string
+  email: string
   hashtags: string[]
   stocks: string[]
   createdDate: string
@@ -44,9 +44,9 @@ export const usePostStore = defineStore('post', () => {
     }
   }
 
-  async function fetchPostsByUsername(username: string) {
+  async function fetchPostsByEmail(email: string) {
     try {
-      const response = await apiClient.post(`/posts/search`, { username })
+      const response = await apiClient.post(`/posts/search`, { email })
       posts.value = response.data
     } catch (error) {
       console.error('Failed to fetch posts', error)
@@ -86,7 +86,7 @@ export const usePostStore = defineStore('post', () => {
   return {
     posts, post, replies,
     fetchPosts, createPostReply,
-    fetchPostsByUsername, fetchPostById,
+    fetchPostsByEmail, fetchPostById,
     likePost,
     fetchPostReplies
   }

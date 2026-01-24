@@ -27,7 +27,6 @@ export default defineComponent({
   setup() {
     const store = useAuthStore()
     const isAuthenticated = computed(() => store.isAuthenticated)
-    const username = computed(() => store.loggedInUser?.username)
 
     const navigation = computed(() => [
       { name: 'Cancellation Flows', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
