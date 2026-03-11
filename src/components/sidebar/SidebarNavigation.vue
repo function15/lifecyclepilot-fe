@@ -30,6 +30,7 @@ export default defineComponent({
 
     const navigation = computed(() => [
       { name: 'Cancellation Flows', route: 'dashboard', to: isAuthenticated.value ? { name: 'dashboard' } : { name: 'login' } },
+      { name: 'Surveys', route: 'surveys', to: isAuthenticated.value ? { name: 'surveys' } : { name: 'login' } },
       { name: 'Settings', route: 'settings-profile', to: isAuthenticated.value ? { name: 'settings-profile' } : { name: 'login' } }
     ])
 

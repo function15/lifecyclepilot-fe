@@ -79,27 +79,35 @@ export interface SlideTemplate {
 }
 
 export interface SurveyOption {
-  _id: string
+  id: string
   label: string
   order: number
-  is_other: boolean
+  other: boolean
 }
 
 export interface CancellationSurvey {
-  _id: string
-  tenant_id: string
-  header_1: string
-  header_2: string
+  id: string
+  tenantId: string
+  header1: string | null
+  header2: string | null
   options: SurveyOption[]
-  cancel_button_label: string
-  allow_free_text: boolean
-  created_at: string
-  updated_at: string
+  cancelButtonLabel: string | null
+  allowFreeText: boolean
+  createdAt: number
+  updatedAt: number
 }
 
 export interface CancellationFlowDetailed extends CancellationFlow {
   slides_populated: CancellationSlide[]
   survey_populated: CancellationSurvey
+}
+
+export interface CreateSurveyRequest {
+  header_1: string
+  header_2: string
+  options: { label: string; order: number; other: boolean }[]
+  cancel_button_label: string
+  allow_free_text: boolean
 }
 
 export interface CreateFlowRequest {

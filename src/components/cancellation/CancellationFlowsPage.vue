@@ -23,7 +23,7 @@ onMounted(async () => {
 
 function openCreateModal() {
   newFlowName.value = ''
-  newFlowSurveyId.value = surveys.value[0]?._id ?? ''
+  newFlowSurveyId.value = surveys.value[0]?.id ?? ''
   createError.value = ''
   showCreateModal.value = true
 }
@@ -268,7 +268,7 @@ function formatDate(iso: string): string {
                 v-model="newFlowSurveyId"
                 class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-yellow-500 focus:outline-none focus:ring-1 focus:ring-yellow-500"
               >
-                <option v-for="s in surveys" :key="s._id" :value="s._id">{{ s.header_1 }}</option>
+                <option v-for="s in surveys" :key="s.id" :value="s.id">{{ s.header1 }}</option>
               </select>
               <p v-else class="text-sm text-red-500">No surveys found. Create a survey first.</p>
             </div>

@@ -9,6 +9,7 @@ import type {
   CancellationSurvey,
   CreateFlowRequest,
   UpdateFlowRequest,
+  CreateSurveyRequest,
 } from '@/types/cancellation'
 
 export const useCancellationStore = defineStore('cancellation', () => {
@@ -155,6 +156,36 @@ export const useCancellationStore = defineStore('cancellation', () => {
     }
   }
 
+  async function createSurvey(payload: CreateSurveyRequest): Promise<CancellationSurvey | null> {
+    saving.value = true
+    error.value = null
+    try {
+      const survey = await cancellationService.createSurvey(getTenantId(), payload)
+      surveys.value.unshift(survey)
+      return survey
+    } catch {
+      error.value = 'Failed to create survey'
+      return null
+    } finally {
+      saving.value = false
+    }
+  }
+
+  async function deleteSurvey(surveyId: string): Promise<boolean> {
+    saving.value = true
+    error.value = null
+    try {
+      await cancellationService.deleteSurvey(getTenantId(), surveyId)
+      surveys.value = surveys.value.filter(s => s.id !== surveyId)
+      return true
+    } catch {
+      error.value = 'Failed to delete survey'
+      return false
+    } finally {
+      saving.value = false
+    }
+  }
+
   function clearError() {
     error.value = null
   }
@@ -181,6 +212,8 @@ export const useCancellationStore = defineStore('cancellation', () => {
     reorderSlides,
     fetchSlides,
     fetchSurveys,
+    createSurvey,
+    deleteSurvey,
     clearError,
   }
 })

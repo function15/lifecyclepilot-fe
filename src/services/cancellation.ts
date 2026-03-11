@@ -6,6 +6,7 @@ import type {
   CancellationSurvey,
   CreateFlowRequest,
   UpdateFlowRequest,
+  CreateSurveyRequest,
 } from '@/types/cancellation'
 
 const BASE = '/api/v1'
@@ -69,4 +70,13 @@ export async function deleteSlide(tenantId: string, slideId: string): Promise<vo
 export async function getSurveys(tenantId: string): Promise<CancellationSurvey[]> {
   const res = await apiClient.get(`${BASE}/tenants/${tenantId}/cancellation-surveys`)
   return res.data.data
+}
+
+export async function createSurvey(tenantId: string, payload: CreateSurveyRequest): Promise<CancellationSurvey> {
+  const res = await apiClient.post(`${BASE}/tenants/${tenantId}/cancellation-surveys`, payload)
+  return res.data.data
+}
+
+export async function deleteSurvey(tenantId: string, surveyId: string): Promise<void> {
+  await apiClient.delete(`${BASE}/tenants/${tenantId}/cancellation-surveys/${surveyId}`)
 }

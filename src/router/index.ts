@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('../views/CancellationFlowDetailView.vue')
     },
     {
+      path: '/app/surveys',
+      name: 'surveys',
+      component: () => import('../views/SurveysView.vue')
+    },
+    {
       path: '/settings',
       name: 'settings',
       component: SettingsView
