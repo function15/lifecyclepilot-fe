@@ -81,14 +81,19 @@ const router = createRouter({
   ]
 })
 
-// Navigation guard to redirect authenticated users away from login/register pages
-router.beforeEach((to, from, next) => {
+const publicRoutes = ['landing', 'login', 'register', 'disclaimer', 'terms-of-service', 'privacy-policy', '404']
+
+router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore()
 
-  // If user is authenticated and trying to access login or register page
+  if (authStore.isAuthenticated && !authStore.loggedInUser) {
+    await authStore.loadLoggedInUser()
+  }
+
   if (authStore.isAuthenticated && (to.name === 'login' || to.name === 'register')) {
-    // Redirect to Cancellation Flows
     next({ name: 'dashboard' })
+  } else if (!authStore.isAuthenticated && !publicRoutes.includes(to.name as string)) {
+    next({ name: 'login' })
   } else {
     next()
   }
