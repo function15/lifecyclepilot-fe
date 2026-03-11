@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../views/DashboardView.vue')
     },
     {
+      path: '/app/cancel/:flowId',
+      name: 'cancellation-flow-detail',
+      component: () => import('../views/CancellationFlowDetailView.vue')
+    },
+    {
       path: '/settings',
       name: 'settings',
       component: SettingsView
